@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {			
             steps {			
                 echo 'MASTER UPSTREAM executed'	
-                def checkjob = build job:'${JOB_NAME}'
-                checklog = Jenkins.getInstance().getItemByFullName('${JOB_NAME}').getBuildByNumber(checkjob.getNumber()).log
+                def checkjob = build job:${JOB_NAME}
+                checklog = Jenkins.getInstance().getItemByFullName(${JOB_NAME}).getBuildByNumber(checkjob.getNumber()).log
                 println checklog
             }			
         }			
