@@ -1,6 +1,7 @@
 pipeline {			
     agent any
-    stage {			
+    stages {
+        stage('TEST') {
             steps {			
                 echo 'MASTER UPSTREAM executed'	
             }
