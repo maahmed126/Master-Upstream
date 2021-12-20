@@ -4,9 +4,10 @@ pipeline {
         stage('Build') {			
             steps {			
                 echo 'MASTER UPSTREAM executed'	
-                def result = build job: 'job_name', wait: true
+                def result = build job: 'DownstreamJob', wait: false
                 println result.getRawBuild().getLog()
             }			
         }			
     }			
 }		
+
