@@ -5,14 +5,14 @@ pipeline {
             steps {			
                 echo 'MASTER UPSTREAM executed'	
             }
-              stage('BUILD') {
-              steps { 
-              build job: 'DownstreamJob', parameters: [
-              string(name: 'DownstreamJob', value: env.NAME)
-              ], wait: false
+        }       
+        stage('find-upstream') {
+        steps {
+        script {
+        currentBuild.upstreamBuilds?.each{ b ->
+        echo "Triggered by upstream project: ${b.getFullDisplayName()}"
+      }  
+    }
+  } 
+}            
 }
-              }
-        }			
-    }			
-}		
-
