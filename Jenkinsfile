@@ -15,7 +15,6 @@ pipeline {
                 build job: 'ecs-demo-test', propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
-                
                 build job: ' Multistream', propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
