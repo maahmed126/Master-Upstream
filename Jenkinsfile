@@ -11,6 +11,9 @@ pipeline {
                 
                 build job: 'DownstreamJob'	
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
+                
+                build job: 'ecs-demo-test'
+                echo "Pipeline currentResult: ${currentBuild.currentResult}"
                      }			
         }			
    }		
