@@ -6,9 +6,11 @@ pipeline {
     stages {			
         stage('Build') {			
             steps {			
-                build job: 'DevUP' 'DownstreamJob'	
+                build job: 'DevUP' 
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
+                build job: 'DownstreamJob'	
+                echo "Pipeline currentResult: ${currentBuild.currentResult}"
                      }			
         }			
    }		
