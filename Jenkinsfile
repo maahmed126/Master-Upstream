@@ -9,7 +9,7 @@ pipeline {
                 build job: 'DevUP' 
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
-                build job: 'DownstreamJob'	
+                build job: 'DownstreamJob',	parameters: [string(name: 'targetEnvironment', value: 'stage')], propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
                 build job: 'ecs-demo-test'
