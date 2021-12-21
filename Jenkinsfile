@@ -1,7 +1,5 @@
 pipeline {			
     agent any
-    def handle = triggerRemoteJob blockBuildUntilComplete: false,
-    def status = handle.updateBuildStatusBlocking()
     stages {			
         stage('Build') {			
             steps {			
