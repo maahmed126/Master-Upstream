@@ -6,14 +6,19 @@ pipeline {
     stages {			
         stage('Build') {			
             steps {			
-                build job: 'DevUP' 
+                build job: 'DevUP' , propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
-                build job: 'DownstreamJob',	parameters: [string(name: 'targetEnvironment', value: 'stage')], propagate: false
+                build job: 'DownstreamJob', propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
                 build job: 'ecs-demo-test', propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
+                
+                
+                build job: ' Multistream', propagate: false
+                echo "Pipeline currentResult: ${currentBuild.currentResult}"
+                
                      }			
         }			
    }		
