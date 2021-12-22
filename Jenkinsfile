@@ -7,9 +7,6 @@ pipeline {
         stage('Build') {			
             steps {
                 echo 'TRIGGER MASTER PIPELINE'
-                build job: 'DevUP' , propagate: false
-                echo "Pipeline currentResult: ${currentBuild.currentResult}"
-                
                 build job: 'DownstreamJob', propagate: false
                 echo "Pipeline currentResult: ${currentBuild.currentResult}"
                 
